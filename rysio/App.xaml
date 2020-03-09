@@ -31,10 +31,15 @@
             <GradientStop Color="#CCCCFF" Offset="0.5" />
             <GradientStop Color="DarkGray" Offset="1" />
         </LinearGradientBrush>
-        <LinearGradientBrush x:Key="GrayBlueMouseGradientBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#CCCCFF" Offset="0" />
-            <GradientStop Color="DarkGray" Offset="0.5" />
-            <GradientStop Color="#CCCCFF" Offset="1" />
+        <LinearGradientBrush x:Key="GrayBlueMouseOverGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="DarkGray" Offset="0" />
+            <GradientStop Color="#FAA7FC" Offset="0.5" />
+            <GradientStop Color="DarkGray" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="GrayBlueMouseClickGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="DarkGray" Offset="0" />
+            <GradientStop Color="#F73985" Offset="0.5" />
+            <GradientStop Color="DarkGray" Offset="1" />
         </LinearGradientBrush>
 
         <Style x:Key="PerformButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MarginBaseStyle}">
@@ -46,14 +51,20 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="button" Property="BorderBrush" Value="#FF5798d8" />
-                                <Setter TargetName="button" Property="Background" Value="{StaticResource GrayBlueMouseGradientBrush}"/>
+                                <Setter TargetName="button" Property="Background" Value="{StaticResource GrayBlueMouseOverGradientBrush}"/>
                                 <Setter Property="Foreground" Value="White" />
                             </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter TargetName="button" Property="Background" Value="{StaticResource GrayBlueGradientBrush}"/>
+                                <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="button"  Property="Background" Value="DarkGray"/>
+                                <Setter TargetName="button"  Property="Background" Value="{StaticResource GrayBlueMouseClickGradientBrush}"/>
                             </Trigger>
                             <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="button" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="False">
                                 <Setter TargetName="button" Property="BorderBrush" Value="Blue" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
