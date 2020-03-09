@@ -1,0 +1,76 @@
+﻿<Window x:Class="rysio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:rysio"
+        mc:Ignorable="d"
+        Title="Ryśku" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Plik">
+                    <MenuItem Header="Wyczyść"/>
+                    <Separator/>
+                    <MenuItem Header="Koniec"/>
+                </MenuItem>
+                <MenuItem Header="Historia">
+                    <MenuItem Header="Eksportuj"/>
+                    <MenuItem Header="Wyczyść"/>
+                </MenuItem>
+                <MenuItem Header="Pomoc">
+                    <MenuItem Header="Zapytania"/>
+                    <Separator/>
+                    <MenuItem Header="O programie"/>
+                </MenuItem>
+            </Menu>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.4*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="0.6*"/>
+                </Grid.ColumnDefinitions>
+                <GridSplitter Grid.Column="1"/>
+                <StackPanel Grid.Column="0">
+                    <GroupBox Header="Uczelnia" Margin="5">
+                        <StackPanel>
+                            <RadioButton Content="Politechnika"/>
+                            <RadioButton Content="WUM"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Uwierzytelnienie">
+                        <Grid Style="{StaticResource MarginBaseStyle}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0">Login:</Label>
+                            <Label Grid.Row="1" Grid.Column="0">Hasło:</Label>
+                            <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+                            <PasswordBox Grid.Row="1" Grid.Column="1"></PasswordBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Zapytanie">
+                        <TextBox/>
+                    </GroupBox>
+                    <Button Style="{StaticResource PerformButtonStyle}">
+                        Wykonaj
+                    </Button>
+                </StackPanel>
+                <GroupBox Grid.Column="2" Header="Historia zapytań">
+                    <DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Zapytanie" Binding="{Binding QueryText}"/>
+                            <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Alias" Binding="{Binding Email}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
