@@ -10,18 +10,18 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="Plik">
-                    <MenuItem Header="Wyczyść"/>
+                    <MenuItem Header="Wyczyść" Name="ClearMenuItem"/>
                     <Separator/>
-                    <MenuItem Header="Koniec"/>
+                    <MenuItem Header="Koniec" Name="ExitMenuItem"/>
                 </MenuItem>
                 <MenuItem Header="Historia">
-                    <MenuItem Header="Eksportuj"/>
-                    <MenuItem Header="Wyczyść"/>
+                    <MenuItem Header="Eksportuj" Name="ExportHistoryMenuItem"/>
+                    <MenuItem Header="Wyczyść" Name="ClearHistoryMenuItem"/>
                 </MenuItem>
                 <MenuItem Header="Pomoc">
-                    <MenuItem Header="Zapytania"/>
+                    <MenuItem Header="Zapytania" Name="QueryHelpMenuItem"/>
                     <Separator/>
-                    <MenuItem Header="O programie"/>
+                    <MenuItem Header="O programie" Name="AboutMenuItem"/>
                 </MenuItem>
             </Menu>
             <Grid>
@@ -34,8 +34,8 @@
                 <StackPanel Grid.Column="0">
                     <GroupBox Header="Uczelnia" Margin="5">
                         <StackPanel>
-                            <RadioButton Content="Politechnika"/>
-                            <RadioButton Content="WUM"/>
+                            <RadioButton Content="Politechnika" Name="TechRadioButton" IsChecked="True"/>
+                            <RadioButton Content="WUM" Name="MedRadioButton"/>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="Uwierzytelnienie">
@@ -50,14 +50,14 @@
                             </Grid.RowDefinitions>
                             <Label Grid.Row="0" Grid.Column="0">Login:</Label>
                             <Label Grid.Row="1" Grid.Column="0">Hasło:</Label>
-                            <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
-                            <PasswordBox Grid.Row="1" Grid.Column="1"></PasswordBox>
+                            <TextBox Grid.Row="0" Grid.Column="1" Name="LoginTextBox"></TextBox>
+                            <PasswordBox Grid.Row="1" Grid.Column="1" Name="PasswordTextBox"></PasswordBox>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Zapytanie">
-                        <TextBox/>
+                        <TextBox Name="QueryTextBox"/>
                     </GroupBox>
-                    <Button Style="{StaticResource PerformButtonStyle}">
+                    <Button Style="{StaticResource PerformButtonStyle}" Name="PerformButton">
                         Wykonaj
                     </Button>
                 </StackPanel>
